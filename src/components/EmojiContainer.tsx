@@ -10,7 +10,6 @@ const emojis = [
 ];
 
 const EmojiContainer: React.FC<any> = () => {
-	console.log(Smile.name);
 	return <Smile />;
 };
 
