@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
 	}
 });
 
-const Button: React.FC<any> = ({ primary }: { primary: boolean }) => {
+const Button: React.FC<any> = ({ onClick, primary }: { onClick: any; primary: boolean }) => {
 	const classes = useStyles();
 	return (
 		<button
@@ -31,7 +31,8 @@ const Button: React.FC<any> = ({ primary }: { primary: boolean }) => {
 				) : (
 					{}
 				)
-			}>
+			}
+			onClick={onClick}>
 			{!primary ? '2 Players' : 'Play'}
 		</button>
 	);

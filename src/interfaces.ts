@@ -4,10 +4,16 @@ export interface Player {
 
 export interface Store {
 	sound: boolean;
-	language: 'persian' | 'english';
+	persian: boolean;
 	difficulty: number;
 	round: number;
 	playerOne: Player;
-	playerTwo: Player;
+	playerTwo?: Player;
 }
-export type Dispatch = (callback: (store: Store | undefined) => Store | undefined) => void;
+export const defaultState = {
+	sound: true,
+	persian: false,
+	difficulty: 1,
+	round: 0,
+	playerOne: { points: 0 }
+};

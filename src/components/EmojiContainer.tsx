@@ -1,6 +1,5 @@
 import React from 'react';
-import Smile from '../assets/smile.svg';
-
+import Smile from './emoji/Smile';
 const emojis = [
 	{
 		id: 1,

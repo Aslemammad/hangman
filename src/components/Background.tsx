@@ -1,20 +1,29 @@
 import React, { useRef, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
+import { CSSTransition } from 'react-transition-group';
 const useStyles = createUseStyles({
+	'@keyframes fade': {
+		from: {
+			opacity: '0%'
+		},
+		to: {
+			opacity: '100%'
+		}
+	},
 	background: {
-        'z-index':-10,
+		'z-index': -10,
 		width: '100%',
 		height: '100%',
 		overflow: 'hidden',
 		position: 'absolute',
-		padding: '3rem'
+		padding: '3rem',
+
+		animation: '$fade 1.2s'
 	}
- 
 });
 const Svg: React.FC = () => {
-
 	const svgs = [];
-	for (let index = 0; index < 12; index++) {
+	for (let index = 0; index < 15; index++) {
 		const randomStyle = Math.random();
 		svgs[svgs.length] = (
 			<svg
@@ -22,13 +31,12 @@ const Svg: React.FC = () => {
 				style={{
 					position: 'relative',
 					top: `${Math.random() * window.innerHeight + 1}px`,
-					left: `${index * 200}px`,
+					left: `${index * 160}px`,
 					transform: `rotate(${Math.random() * 180 + 1}deg) matrix(-0.15, 0.99, 0.99, 0.15, 0, 0)`,
 					stroke: randomStyle > 0.5 ? 'rgba(250, 210, 46, 1)' : 'rgba(0, 0, 0, 1)',
 					filter: `drop-shadow( 0px 5px 5px rgba(${randomStyle > 0.5
 						? '250, 210, 46, 0.75'
-                        : '0, 0, 0, 0.55'}))`,
-                        
+						: '0, 0, 0, 0.55'}))`
 				}}
 				xmlns='http://www.w3.org/2000/svg'
 				width='42'
@@ -48,8 +56,9 @@ const Background: React.FC = () => {
 	console.log(window.innerWidth);
 	return (
 		<div className={classes.background} ref={elementRef}>
+
 			<Svg />
 		</div>
 	);
 };
-export default Background;
+export default React.memo(Background);

@@ -1,4 +1,4 @@
 import { createStore } from 'contextism';
-import { Store, Dispatch } from './interfaces';
-const Context = createStore<Store, Dispatch>(undefined);
+import { Store } from './interfaces';
+const Context = createStore<Store>();
 export const { Provider, useStore } = Context;
