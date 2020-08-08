@@ -13,7 +13,7 @@ const useStyles = createUseStyles({
     width: "240px",
   },
   letter: {
-    "margin-right": "1rem",
+    "margin-right": ".5rem",
     border: "none",
     background: "none",
     "& svg": {
@@ -34,10 +34,10 @@ const Letters: React.FC = () => {
     setState((prevState: Store) => {
       const isRight = prevState.word?.includes(letter);
       const strCorrectLetters = prevState.correctLetters || "";
-      console.log(prevState.denied, letter);
+      const strDeniedLetters = prevState.denied || "";
       return ({
         ...prevState,
-        denied: strCorrectLetters + letter,
+        denied: strDeniedLetters + letter,
         lastGuess: isRight,
         correctLetters: strCorrectLetters + (isRight ? letter : ""),
       });

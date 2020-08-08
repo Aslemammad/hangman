@@ -9,10 +9,8 @@ export interface Store {
 	difficulty: number;
 	round: number;
 	playerOne: Player;
-	synonym?: string;
 	timeEnd?: boolean;
 	lastGuess?: boolean;
-	subject?: string;
 	correctLetters?: string;
 	word?: string;
 	denied?: string;
@@ -25,8 +23,6 @@ export const defaultStore: Store = {
 	round: 0,
 	lastGuess: true,
 	playerOne: { points: 0 },
-	subject: 'food',
-	word: 'TOMATO',
 	denied: '',
 	timeEnd: false
 };

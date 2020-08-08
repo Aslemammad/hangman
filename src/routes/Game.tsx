@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import randomWords from "random-words";
 import { useStore } from "../store";
-import { Header, Letters, Word } from "../components/";
+import { Header, Letters, Word ,EmojiContainer} from "../components/";
 import { Store } from "../interfaces";
 import { navigate } from "hookrouter";
 
@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     "justify-content": "center",
   },
 });
-const Game = () => {
+const Game:React.FC<any> = ({morph}:{morph:any}) => {
   const classes = useStyles();
   const [state, setState] = useStore();
   const getWord = () => {
@@ -28,9 +28,9 @@ const Game = () => {
     }
     return word.toUpperCase();
   };
-  const handleRightGuess = () =>{
+  const handleRightGuess = () => {
     const word = getWord();
-    const helpLetter = "" + word[Math.floor(Math.random() * word.length) ]; 
+    const helpLetter = "" + word[Math.floor(Math.random() * word.length)];
     setState((prevState: Store) => ({
       ...prevState,
       word: word,
@@ -38,12 +38,19 @@ const Game = () => {
       timeEnd: false,
       denied: helpLetter,
       correctLetters: helpLetter,
-    }))};
+    }));
+  };
   useEffect(() => {
+    console.log("I know you'r trying to cheat, but be loyal please.");
     const word = getWord();
-    const helpLetter = "" + word[Math.floor(Math.random() * word.length) ]; 
+    const helpLetter = "" + word[Math.floor(Math.random() * word.length)];
 
-    setState((prevState: Store) => ({ ...prevState, word: word,correctLetters: helpLetter,denied:helpLetter }));
+    setState((prevState: Store) => ({
+      ...prevState,
+      word: word,
+      correctLetters: helpLetter,
+      denied: helpLetter,
+    }));
   }, []);
 
   useEffect(() => {
@@ -54,8 +61,9 @@ const Game = () => {
     }
   }, [state.timeEnd, state.correctLetters]);
   return (
-    <div className={classes.game}>
+    <div className={classes.game} {...morph}>
       <Header />
+      <EmojiContainer />
       <Word />
       <Letters />
     </div>

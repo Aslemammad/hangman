@@ -24,13 +24,13 @@ const useStyles = createUseStyles({
   },
   settings: {},
 });
-const Home = () => {
+const Home:React.FC<any> = ({morph}:{morph:any}) => {
   const classes = useStyles();
   const [state, setState] = useStore();
   return (
-    <div className={classes.home}>
+    <div className={classes.home} {...morph}>
       <h1 className={classes.title}>Hangman</h1>
-      <EmojiContainer />
+      <EmojiContainer primary />
       <div className={classes.buttons}>
         <Button primary onClick={() => navigate("/game")} />
         <Button
