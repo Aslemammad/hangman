@@ -28,17 +28,22 @@ const Game = () => {
     }
     return word.toUpperCase();
   };
-  const handleRightGuess = () =>
+  const handleRightGuess = () =>{
+    const word = getWord();
+    const helpLetter = "" + word[Math.floor(Math.random() * word.length) ]; 
     setState((prevState: Store) => ({
       ...prevState,
-      word: getWord(),
+      word: word,
       round: prevState.round + 1,
       timeEnd: false,
-      denied: "",
-      correctLetters: "",
-    }));
+      denied: helpLetter,
+      correctLetters: helpLetter,
+    }))};
   useEffect(() => {
-    setState((prevState: Store) => ({ ...prevState, word: getWord() }));
+    const word = getWord();
+    const helpLetter = "" + word[Math.floor(Math.random() * word.length) ]; 
+
+    setState((prevState: Store) => ({ ...prevState, word: word,correctLetters: helpLetter,denied:helpLetter }));
   }, []);
 
   useEffect(() => {
@@ -51,7 +56,6 @@ const Game = () => {
   return (
     <div className={classes.game}>
       <Header />
-      <span></span>
       <Word />
       <Letters />
     </div>

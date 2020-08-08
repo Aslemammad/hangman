@@ -9,6 +9,7 @@ export interface Store {
 	difficulty: number;
 	round: number;
 	playerOne: Player;
+	synonym?: string;
 	timeEnd?: boolean;
 	lastGuess?: boolean;
 	subject?: string;
