@@ -1,5 +1,6 @@
 export interface Player {
 	points: number;
+	active?: boolean;
 }
 
 export interface Store {
@@ -8,12 +9,23 @@ export interface Store {
 	difficulty: number;
 	round: number;
 	playerOne: Player;
+	timeEnd?: boolean;
+	lastGuess?: boolean;
+	subject?: string;
+	correctLetters?: string;
+	word?: string;
+	denied?: string;
 	playerTwo?: Player;
 }
-export const defaultState = {
+export const defaultStore: Store = {
 	sound: true,
 	persian: false,
 	difficulty: 1,
 	round: 0,
-	playerOne: { points: 0 }
+	lastGuess: true,
+	playerOne: { points: 0 },
+	subject: 'food',
+	word: 'TOMATO',
+	denied: '',
+	timeEnd: false
 };

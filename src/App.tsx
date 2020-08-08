@@ -1,30 +1,28 @@
-import React from 'react';
+import React from "react";
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { useRoutes } from 'hookrouter';
-import { Store, defaultState } from './interfaces';
-import { Provider } from './store';
-import Background from './components/Background';
-import Home from './routes/Home';
-import Game from './routes/Game';
+import { useRoutes } from "hookrouter";
+import { Store, defaultStore } from "./interfaces";
+import { Provider } from "./store";
+import Background from "./components/Background";
+import Home from "./routes/Home";
+import Game from "./routes/Game";
 const routes = {
-	'/': () => <Home />,
-	'/game': () => <Game />
+  "/": () => <Home />,
+  "/game": () => <Game />
 };
 
 const App: React.FC = () => {
-	const routeResult = useRoutes(routes);
-	const [
-		state,
-		dispatch
-	] = React.useState<Store>(defaultState);
-	return (
-		<React.Fragment>
-			<Background />
+  const routeResult = useRoutes(routes);
+  const [state, dispatch] = React.useState<Store>(defaultStore);
 
-			<Provider state={state} dispatch={dispatch}>
-				{routeResult}
-			</Provider>
-		</React.Fragment>
-	);
+  return (
+    <React.Fragment>
+      <Background />
+
+      <Provider state={state} dispatch={dispatch}>
+        {routeResult}
+      </Provider>
+    </React.Fragment>
+  );
 };
 export default App;
