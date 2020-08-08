@@ -99,6 +99,11 @@ module.exports = {
 
 			{ test: /\.svg$/, loader: '@svgr/webpack' },
 			{
+				test: /\.json$/,
+				loader: 'file-loader',
+				type: 'javascript/auto'
+			},
+			{
 				test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
 				use: 'file-loader'
 			}
