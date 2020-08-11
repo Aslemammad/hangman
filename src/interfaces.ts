@@ -17,7 +17,7 @@ export interface Store {
 	playerTwo?: Player;
 }
 export const defaultStore: Store = {
-	sound: true,
+	sound: false,
 	persian: false,
 	difficulty: 1,
 	round: 0,
