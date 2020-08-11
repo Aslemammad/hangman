@@ -4,7 +4,7 @@ import { useStore } from "../store";
 const useStyles = createUseStyles({
   words: {
     "font-family": "Ubuntu, sans-serif",
-    "font-size": "45px",
+    "font-size": "3rem",
     margin: "2rem",
     display: "flex",
     "align-items": "flex-end",
@@ -16,8 +16,8 @@ const useStyles = createUseStyles({
     "align-items": "center",
     "margin-right": "1rem",
     "& div": {
-      width: "40px",
-      height: "10px",
+      width: "3rem",
+      height: ".5rem",
     },
   },
 });

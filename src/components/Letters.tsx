@@ -2,23 +2,25 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { useStore } from "../store";
 import { Store } from "../interfaces";
-import { DeniedSVG } from "./SVG";
+import { DeniedSVG } from "./assets";
 const useStyles = createUseStyles({
   letters: {
     "font-family": "Ubuntu, sans-serif",
-    "font-size": "28px",
+    "font-size": "1.5rem",
     display: "flex",
     "flex-wrap": "wrap",
     "justify-content": "space-between",
-    width: "240px",
+    width: "12rem",
   },
   letter: {
     "margin-right": ".5rem",
     border: "none",
     background: "none",
+    display:'flex',
+    'justify-content':'center',
+    'align-items':'center',
     "& svg": {
       position: "relative",
-      left: "-20px",
     },
     "&:focus": {
       outline: "none",
