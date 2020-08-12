@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import { useStore } from "../store";
 import { Store } from "../interfaces";
 import { DeniedSVG } from "./assets";
+import ToolTip from "./ToolTip";
 const useStyles = createUseStyles({
   letters: {
     "font-family": "Ubuntu, sans-serif",
@@ -16,11 +17,12 @@ const useStyles = createUseStyles({
     "margin-right": ".5rem",
     border: "none",
     background: "none",
-    display:'flex',
-    'justify-content':'center',
-    'align-items':'center',
+    display: "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    position: "relative",
     "& svg": {
-      position: "relative",
+      position: "absolute",
     },
     "&:focus": {
       outline: "none",
@@ -63,4 +65,4 @@ const Letters: React.FC = () => {
   );
 };
 
-export default Letters;
+export default ToolTip(Letters);

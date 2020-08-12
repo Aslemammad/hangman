@@ -83,6 +83,7 @@
         "react-morph": "^0.4.0",
         "react-router-dom": "^5.2.0",
         "react-sound": "^1.2.0",
+        "react-tooltip": "^4.2.8",
         "react-transition-group": "^4.4.1",
         "react-use-localstorage": "^3.4.3"
     }

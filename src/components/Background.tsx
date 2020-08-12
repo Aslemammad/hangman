@@ -2,18 +2,14 @@ import React, { useRef } from "react";
 import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   "@keyframes animation": {
-    "33%": {
-      transform: "translateX(50px)",
-    },
-    "40%": {
-      opacity: "100%",
-      transform: "translateX(0)",
+    "25%": {
+      transform: "translateX(1rem)",
     },
     "50%": {
-      transform: "skewX(30deg)",
+      transform: "translateX(-1rem)",
     },
-    "60%": {
-      transform: "skew(0,0)",
+    "75%": {
+      transform: "translateX(0)",
     },
   },
   background: {
@@ -22,7 +18,7 @@ const useStyles = createUseStyles({
     height: "100%",
     overflow: "hidden",
     position: "absolute",
-    animation: "$fade .5s infinite",
+    animation: "$animation 2s infinite ",
   },
   svg: {
     position: "absolute",

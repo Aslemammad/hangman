@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import randomWords from "random-words";
 import { useStore } from "../store";
-import { Header, Letters, Word ,EmojiContainer} from "../components/";
+import { Header, Letters, Word, EmojiContainer } from "../components/";
 import { Store } from "../interfaces";
 import { navigate } from "hookrouter";
 
@@ -14,10 +14,10 @@ const useStyles = createUseStyles({
     "align-items": "center",
     "flex-wrap": "wrap",
     "flex-direction": "column",
-    "justify-content": "center",
+    "justify-content": "space-between",
   },
 });
-const Game:React.FC<any> = ({morph}:{morph:any}) => {
+const Game: React.FC<any> = () => {
   const classes = useStyles();
   const [state, setState] = useStore();
   const getWord = () => {
@@ -41,7 +41,6 @@ const Game:React.FC<any> = ({morph}:{morph:any}) => {
     }));
   };
   useEffect(() => {
-    console.log("I know you'r trying to cheat, but be loyal please.");
     const word = getWord();
     const helpLetter = "" + word[Math.floor(Math.random() * word.length)];
 
@@ -61,11 +60,11 @@ const Game:React.FC<any> = ({morph}:{morph:any}) => {
     }
   }, [state.timeEnd, state.correctLetters]);
   return (
-    <div className={classes.game} {...morph}>
+    <div className={classes.game}>
       <Header />
       <EmojiContainer />
       <Word />
-      <Letters />
+      <Letters title="Select the right letter to guess" />
     </div>
   );
 };
