@@ -13,4 +13,5 @@ html {
 
 body {
     font-family: Ubuntu, sans-serif;
+    overflow: hidden;
 }

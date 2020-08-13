@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { createUseStyles } from "react-jss";
+//Todo: Not responsive when animation is active (Mobile)
 const useStyles = createUseStyles({
   "@keyframes animation": {
     "25%": {
@@ -16,8 +17,7 @@ const useStyles = createUseStyles({
     "z-index": -10,
     width: "100%",
     height: "100%",
-    overflow: "hidden",
-    position: "absolute",
+    position: "relative",
     animation: "$animation 2s infinite ",
   },
   svg: {
