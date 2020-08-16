@@ -122,6 +122,11 @@ module.exports = {
 					chunks: 'all',
 					filename: isProduction ? 'vendor.[contenthash].js' : 'vendor.[hash].js',
 					priority: -10
+				},
+				common: {
+					test: /[\\/]src[\\/]components[\\/]/,
+					chunks: 'all',
+					minSize: 0
 				}
 			}
 		},
@@ -129,9 +134,9 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.EnvironmentPlugin({
-			NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-			DEBUG: false,
-			API_URL: 'http://127.0.0.1:3000'
+			NODE_ENV: isProduction ? 'production' : 'development', // use 'development' unless process.env.NODE_ENV is defined
+			DEBUG: isProduction ? false : true,
+			API_URL: isProduction ? 'https://radiant-ocean-01048.herokuapp.com/' : 'http://localhost:8000/'
 		}),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({

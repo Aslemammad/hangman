@@ -14,41 +14,40 @@ const useStyles = createUseStyles({
     },
   },
   background: {
+    position: "absolute",
     "z-index": -10,
-    width: "100%",
-    height: "100%",
-    position: "relative",
-    animation: "$animation 2s infinite ",
+    animation: "$animation 2s infinite",
   },
   span: {
     position: "absolute",
     opacity: 0.6,
   },
 });
+// impress js in react
+// create DE in linux
 const Background: React.FC = () => {
   const classes = useStyles();
   const alphabetical = "ABCDEFGHIJKLMNORPSTUVWXYZ".split("");
   return (
     <div className={classes.background}>
-      {alphabetical.map((letter, index) => {
+      {alphabetical.map((letter) => {
         const constRandom = Math.random();
 
-        return (<span
-          key={letter}
-          className={classes.span}
-          style={{
-            position: "relative",
-            top: `${constRandom * window.innerHeight / 18 + 1}rem`,
-            left: `${Math.random() * (window.innerWidth / 18) + 1}rem`,
-
-            fontFamily: "Ubuntu, sans-serif",
-            color: Math.random() > 0.5
-              ? "rgba(250, 210, 46, 1)"
-              : "rgba(0, 0, 0, 1)",
-          }}
-        >
-          {letter}
-        </span>);
+        return (
+          <span
+            key={letter}
+            className={classes.span}
+            style={{
+              top: `${(constRandom * window.innerHeight) / 18 + 1}rem`,
+              left: `${Math.random() * (window.innerWidth / 18) + 1}rem`,
+              color: Math.random() > 0.5
+                ? "rgba(250, 210, 46, 1)"
+                : "rgba(0, 0, 0, 1)",
+            }}
+          >
+            {letter}
+          </span>
+        );
       })}
     </div>
   );

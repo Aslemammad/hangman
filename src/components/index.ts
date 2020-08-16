@@ -7,3 +7,5 @@ export { default as Letters } from "./Letters";
 export { default as Settings } from "./Settings";
 export { default as Word } from "./Word";
 export { default as Smile } from "./emoji/Smile";
+export { default as Description } from "./Description";
+export { default as Bar } from "./Bar";

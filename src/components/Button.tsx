@@ -20,26 +20,26 @@ const useStyles = createUseStyles({
   },
 });
 
-const Button: React.FC<any> = (
-  { onClick, primary }: { onClick: any; primary: boolean },
-) => {
+const Button: React.FC<any> = ({
+  onClick,
+  primary,
+}: {
+  onClick: any;
+  primary: boolean;
+}) => {
   const classes = useStyles();
   return (
     <button
       className={classes.button}
       style={!primary
-        ? (
-          {
-            background: "#000000",
-            color: "#FAD22E",
-            fontSize: "1.2rem",
-            width: "8rem",
-            height: "2.5rem",
-          }
-        )
-        : (
-          {}
-        )}
+        ? {
+          background: "#000000",
+          color: "#FAD22E",
+          fontSize: "1.2rem",
+          width: "8rem",
+          height: "2.5rem",
+        }
+        : {}}
       onClick={onClick}
     >
       {!primary ? "2 Players" : "Play"}

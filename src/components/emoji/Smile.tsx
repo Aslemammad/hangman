@@ -2,21 +2,19 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
-  "@keyframes move": {
-    // transform: 'translateX(40px)'
-
+  "@keyframes animation": {
     "25%": {
-      transform: "translateX(-5px)",
+      transform: "translateX(-6px)",
     },
     "50%": {
-      transform: "translateX(3px)",
+      transform: "translateX(6px)",
     },
     "75%": {
       transform: "translateX(0)",
     },
   },
   move: {
-    animation: "$move 2s infinite ",
+    animation: "$animation 2s infinite",
   },
 });
 const Smile = () => {

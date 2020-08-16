@@ -44,6 +44,9 @@ const Letters: React.FC = () => {
         denied: strDeniedLetters + letter,
         lastGuess: isRight,
         correctLetters: strCorrectLetters + (isRight ? letter : ""),
+        remainGuesses: isRight
+          ? prevState.remainGuesses + 1
+          : prevState.remainGuesses - 1,
       });
     });
   return (

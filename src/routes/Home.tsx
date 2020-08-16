@@ -1,9 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { navigate } from "hookrouter";
+import reoverlay from "reoverlay";
 import { useStore } from "../store";
 import { Button, EmojiContainer, Settings } from "../components/";
 import { Store } from "../interfaces";
+console.log(reoverlay);
 const useStyles = createUseStyles({
   home: {
     display: "flex",
@@ -26,10 +28,7 @@ const useStyles = createUseStyles({
 });
 const Home: React.FC<any> = ({ morph }: { morph: any }) => {
   const classes = useStyles();
-  const [
-    state,
-    setState,
-  ] = useStore();
+  const [state, setState] = useStore();
   return (
     <div className={classes.home} {...morph}>
       <h1 className={classes.title}>Hangman</h1>
@@ -40,7 +39,10 @@ const Home: React.FC<any> = ({ morph }: { morph: any }) => {
           onClick={() => {
             setState((prevState: Store) => ({
               ...prevState,
-              playerTwo: { points: 0 },
+              players: [
+                { points: 0, active: true },
+                { points: 0, active: false },
+              ],
             }));
             navigate("/game");
           }}

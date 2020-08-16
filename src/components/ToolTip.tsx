@@ -10,14 +10,15 @@ const useStyles = createUseStyles({
   },
 });
 const ToolTip = (Component: React.ComponentType) =>
-  ({ title }: { title: string }): JSX.Element => {
+  ({
+    title,
+  }: {
+    title: string;
+  }): JSX.Element => {
     const classes = useStyles();
     return (
       <React.Fragment>
-        <div
-          className={classes.tooltip}
-          data-tip={title}
-        >
+        <div className={classes.tooltip} data-tip={title}>
           <Component />
         </div>
         <ReactToolTip />

@@ -19,17 +19,9 @@ const useStyles = createUseStyles({
 });
 const Settings = () => {
   const classes = useStyles();
-  const [
-    state,
-    setState,
-  ] = useStore();
+  const [state, setState] = useStore();
   const handleChangeSound = () =>
     setState((prevState: Store) => ({ ...prevState, sound: !prevState.sound }));
-  const handleChangeLanguage = () =>
-    setState((prevState: Store) => ({
-      ...prevState,
-      persian: !prevState.persian,
-    }));
   const handleChangeDifficulty = () =>
     setState((prevState: Store) => ({
       ...prevState,
@@ -40,11 +32,7 @@ const Settings = () => {
       <CircleButton onClick={handleChangeSound}>
         {state.sound ? <ActiveSoundSVG /> : <InActiveSoundSVG />}
       </CircleButton>
-      <CircleButton onClick={handleChangeLanguage}>
-        {state.persian
-          ? <IranSVG />
-          : <EnglandSVG />}
-      </CircleButton>
+
       <CircleButton onClick={handleChangeDifficulty}>
         {state.difficulty}
       </CircleButton>
