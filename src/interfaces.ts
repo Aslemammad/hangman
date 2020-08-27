@@ -8,6 +8,8 @@ export interface Store {
 	persian: boolean;
 	difficulty: number;
 	round: number;
+	aboutModal: boolean;
+	detailsModal: boolean;
 	players?: [Player, Player];
 	remainGuesses: number;
 	thesaurus?: string[];
@@ -17,8 +19,12 @@ export interface Store {
 	word?: string;
 	denied?: string;
 	lastRound?: boolean;
+	lastGameRounds?: number;
+	lastGameWinner?: 1 | 2;
 }
 export const defaultStore: Store = {
+	aboutModal: false,
+	detailsModal: false,
 	sound: false,
 	persian: false,
 	difficulty: 1,

@@ -17,7 +17,7 @@ const Description = () => {
       {state.thesaurus?.length
         ? state.thesaurus?.filter((word) => word != state.word)?.slice(1, 5)
           ?.join(", ")
-        : "It's a easy word, So no help."}
+        : "The API didn't help us, Sorry please."}
     </div>
   );
 };

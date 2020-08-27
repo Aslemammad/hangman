@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, forwardRef } from "react";
 import { createUseStyles } from "react-jss";
 import randomWords from "random-words";
 import { useStore } from "../store";
@@ -7,7 +7,7 @@ import {
   Letters,
   Word,
   EmojiContainer,
-  Description,
+  Description, Transition
 } from "../components/";
 import { Store } from "../interfaces";
 import { navigate } from "hookrouter";
@@ -21,9 +21,10 @@ const useStyles = createUseStyles({
     "flex-wrap": "wrap",
     "flex-direction": "column",
     "justify-content": "space-between",
+    overflow: 'hidden'
   },
 });
-const Game: React.FC<any> = () => {
+const Game: React.FC<any> = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const classes = useStyles();
   const [state, setState] = useStore();
   const getWord = () => {
@@ -82,19 +83,25 @@ const Game: React.FC<any> = () => {
       denied: helpLetter,
     }));
   }, []);
-
+  // watching for winning
   useEffect(
     () => {
       const equal = (new Set(state.word?.split(""))).size ==
         state.correctLetters?.split("")?.length;
       if (state.timeEnd || state.remainGuesses == 0 || equal) {
-        equal ? handleRightGuess() : navigate("/");
+        if (equal) {
+           handleRightGuess()
+        } else if(!(state.players && (state.players[0].points === 0)) || !equal) {
+        // setState((prevState: Store) => ({ ...prevState, detailsModal: true }))
+        navigate("/");
+        }
+
       }
     },
     [state.timeEnd, state.correctLetters, state.remainGuesses, state.lastRound],
   );
   return (
-    <div className={classes.game}>
+    <div className={classes.game} ref={ref}>
       <Header />
       <EmojiContainer />
       <Description title="Relative words" />
@@ -102,6 +109,6 @@ const Game: React.FC<any> = () => {
       <Letters title="Select the right letter to guess" />
     </div>
   );
-};
+});
 
-export default Game;
+export default Transition(Game);

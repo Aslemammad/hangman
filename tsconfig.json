@@ -7,7 +7,7 @@
     "moduleResolution": "Node",
     "experimentalDecorators": true,
     "declaration": false,
-    "removeComments": true,
+    "removeComments": true,"noImplicitAny": false,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "strict": true,
@@ -15,7 +15,7 @@
     "lib": ["es6", "es7", "dom"],
     "baseUrl": "src",
     "typeRoots": ["node_modules/@types","./typings"],
-    "types": ["react-router-dom", "node", "react", "react-transition-group","hookrouter","react-sound"],
+    "types": ["react-router-dom", "node", "react", "react-transition-group","hookrouter","react-sound","react-modal"],
     "allowSyntheticDefaultImports": true
   },
   "exclude": ["build", "node_modules"]
